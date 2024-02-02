@@ -1,11 +1,12 @@
 @import "../variables";
+
 #portfolio {
   overflow-x: hidden;
 
-  @media (min-width: 768px) {
+  @media (min-width: $tablet) {
     padding: 40px 40px;
   }
-  @media (min-width: 1200px) {
+  @media (min-width: $desktop) {
     padding: 60px;
   }
 }
@@ -13,11 +14,11 @@
   color: $mainFontColor;
   margin-bottom: 40px;
 
-  @media (min-width: 768px) {
+  @media (min-width: $tablet) {
     margin-bottom: 90px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: $desktop) {
     margin-bottom: 20px;
   }
 
@@ -27,18 +28,13 @@
   font-weight: 400;
   line-height: normal;
 }
-
-.swiper-container {
+.swiper {
   width: 100%;
-  height: 400px;
-  position: relative;
+}
 
-  & .swiper-button-prev,
-  & .swiper-button-next {
-    color: rgba(255, 255, 255, 0.6);
-    top: auto;
-    bottom: 42%;
-  }
+.swiper-wrapper {
+  height: fit-content;
+  margin-bottom: 36px;
 }
 
 .swiper-slide {
@@ -66,7 +62,7 @@
   bottom: -28px !important;
 
   @media (min-width: 768px) {
-    bottom: -52px !important;
+    bottom: 4px !important;
   }
 }
 
@@ -74,6 +70,7 @@
   height: 8px !important;
   background-color: $btnColor !important;
   top: -1px !important;
+  // width: 33% !important;
 }
 
 .swiper-slide {
@@ -99,28 +96,37 @@
   }
 }
 
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 //Звідси починаються стилі десктопної версії
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
+// .visually-hidden {
+//   position: absolute;
+//   width: 1px;
+//   height: 1px;
+//   margin: -1px;
+//   border: 0;
+//   padding: 0;
 
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+//   white-space: nowrap;
+//   clip-path: inset(100%);
+//   clip: rect(0 0 0 0);
+//   overflow: hidden;
 
-  outline: 0;
-  outline-offset: 0;
-  pointer-events: none;
-}
+//   outline: 0;
+//   outline-offset: 0;
+//   pointer-events: none;
+// }
 
 .desktop-portfolio {
   width: 100%;
+  display: none;
+  @media (min-width: $desktop) {
+    display: flex;
+  }
 }
 .desktop-portfolio__list {
   width: 100%;
@@ -173,7 +179,9 @@
 .portfolio__button {
   width: 174px;
   height: 52px;
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   border-radius: 10px;
   background: $btnColor;
