@@ -17,7 +17,7 @@ html {
 body {
   font-family: Inter;
   color: $mainFontColor;
-  background-color: $backgroundcolor;
+  background-color: #0d00ff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,7 +68,7 @@ section {
 }
 
 .button {
-  background-color: $btnColor;
+  background-color: #ffffff;
 
   text-align: center;
   font-size: 16px;
@@ -99,7 +99,7 @@ a {
 
   &:focus,
   &:hover {
-    color: $btnColor;
+    color: #000000;
   }
 }
 
@@ -113,4 +113,8 @@ h2 {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.active {
+  color: #ffa800;
 }
